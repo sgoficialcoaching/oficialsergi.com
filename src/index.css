@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Optimize font rendering */
+body {
+  font-display: swap;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom animations */
+@keyframes particle-float {
+  0%, 100% { 
+    transform: translateY(0px);
+    opacity: 0.4; 
+  }
+  50% { 
+    transform: translateY(-20px);
+    opacity: 0.8; 
+  }
+}
+
+@keyframes energy-orb {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 0.3; 
+  }
+  50% { 
+    transform: scale(1.2) rotate(180deg);
+    opacity: 0.6; 
+  }
+}
+
+@keyframes slow-zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+@keyframes light-ray {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+@keyframes float-particle {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.4; 
+  }
+  33% { 
+    transform: translateY(-30px) translateX(10px);
+    opacity: 0.8; 
+  }
+  66% { 
+    transform: translateY(-10px) translateX(-10px);
+    opacity: 0.6; 
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+  }
+}
+
+@keyframes text-glow {
+  0%, 100% { 
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  50% { 
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
+  }
+}
+
+.animate-float-particle {
+  animation: float-particle linear infinite;
+}
+
+.animate-energy-orb {
+  animation: energy-orb ease-in-out infinite;
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 20s ease-in-out infinite alternate;
+}
+
+.animate-light-ray {
+  animation: light-ray 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-text-glow {
+  animation: text-glow 3s ease-in-out infinite;
+}
