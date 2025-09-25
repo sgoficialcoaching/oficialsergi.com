@@ -26,7 +26,6 @@ const Hero = () => {
                 controls
                 muted
                 preload="metadata"
-                loading="lazy"
                 className="w-full h-full object-cover"
               >
                 <source src="https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/09/0924.mp4" type="video/mp4" />
