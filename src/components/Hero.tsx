@@ -24,7 +24,6 @@ const Hero = () => {
                 loop
                 playsInline
                 controls
-                muted
                 preload="metadata"
                 className="w-full h-full object-cover"
               >
