@@ -5,13 +5,21 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   base: '/',
+  define: {
+    global: 'globalThis',
+  },
   build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
           icons: ['lucide-react']
-        }
+        },
+        assetFileNames: 'assets/[name].[hash][extname]',
+        chunkFileNames: 'assets/[name].[hash].js',
+        entryFileNames: 'assets/[name].[hash].js'
       }
     },
     cssCodeSplit: true,
@@ -22,10 +30,10 @@ export default defineConfig({
         drop_console: true,
         drop_debugger: true
       }
-    }
+    },
+    chunkSizeWarningLimit: 1000
   },
   optimizeDeps: {
-    exclude: ['lucide-react'],
     include: ['react', 'react-dom']
   },
   server: {
